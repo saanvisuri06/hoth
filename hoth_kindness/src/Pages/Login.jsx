@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase-config";
-import { useNavigate } from "react-router-dom"; // To navigate after login
+import { auth } from "../firebase-config";
+import { useNavigate, Link } from "react-router-dom"; 
+import { CiUser, CiLock } from "react-icons/ci";
 
-const LoginPage = () => {
+const LoginPage = ({CiUser, CiLock}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,11 +18,11 @@ const LoginPage = () => {
       }
     });
 
-    return () => unsubscribe(); // Clean up the subscription
+    return () => unsubscribe(); 
   }, [navigate]);
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
     try {
       await signInWithEmailAndPassword(auth, email, password);
       // Once login is successful, the `useEffect` will handle the redirection
@@ -32,23 +33,39 @@ const LoginPage = () => {
 
   return (
     <div>
-      <h2>Login</h2>
+      <div class="flex justify-center items-center h-screen bg-indigo-600">
+      <div class="w-96 p-6 shadow-1g bg-white rounded-md">
+      <h1 class= "text-3x1 block text-center font-semibold">Login</h1>
       <form onSubmit={handleLogin}>
-        <input
+        <div className="form-control">
+          <label for="email" class="block text-base mb-2">Email </label>
+          <CiUser />
+          <input id="email" 
+          class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-        />
-        <input
+          />
+        </div>
+
+        <div className="form-control">
+          <label for="password" class="block text-base mb-2">Password</label>
+          <CiLock />
+          <input id="password"
+          class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-        />
+          />
+        </div>
         <button type="submit">Login</button>
       </form>
       {error && <p>{error}</p>} {/* Display error if login fails */}
+      <Link to="/signup"><p>Don't have an account? please sign up</p></Link>
+      </div>
+      </div>
     </div>
   );
 };
