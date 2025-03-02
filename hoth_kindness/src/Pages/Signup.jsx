@@ -32,21 +32,33 @@ const Signup = ({CiUser, CiLock}) => {
   return (
     <div>
         <div>
-        <h3> Register User </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-        />
-        <input
-          placeholder="Password..."
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
+          <div class="flex justify-center items-center h-screen bg-purple-300">
+            <div class="w-96 p-6 shadow-1g bg-white rounded-md">
+            <h1 class= "text-3xl block text-center font-semibold">Sign Up</h1>
+            <label for="email" class="block text-base mb-2">Email</label>
+            <input
+              class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
+              placeholder="Enter Email"
+              onChange={(event) => {
+                setEmail(event.target.value);
+              }}
+            />
+          
+            <label for="password" class="block text-base mb-2">Password</label>
+            <input
+              class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
+              placeholder="Enter Password"
+              onChange={(event) => {
+                setPassword(event.target.value);
+              }}
+            />
 
-        <button onClick={handleSignup}> Create User</button>
+            <div className="flex justify-center mt-4">
+              <button className="px-10 py-2 text-xl rounded-md bg-black text-white" type="submit" onClick={handleSignup}> Create User</button>
+            </div>
+
+            </div>
+          </div>
       </div>
     </div>
   )
