@@ -60,10 +60,12 @@ const LoginPage = ({CiUser, CiLock}) => {
           placeholder="Password"
           />
         </div>
-        <button type="submit">Login</button>
+        <div>
+          <button className="px-10 py-2 text-2x1 rounded-md bg-black text-white" type="submit">Login</button>
+        </div>
       </form>
       {error && <p>{error}</p>} {/* Display error if login fails */}
-      <Link to="/signup"><p>Don't have an account? please sign up</p></Link>
+      <Link to="/signup"><p>Don't have an account with us? Create a new account!</p></Link>
       </div>
       </div>
     </div>
