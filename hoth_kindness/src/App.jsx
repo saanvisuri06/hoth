@@ -12,7 +12,7 @@ const App = () => {
   const router = createBrowserRouter([{ 
       path: "",
       element: <MainLayout />, 
-      children: [{path: "/", element: <SignIn CiUser={CiUser} CiLock={CiLock}/>}, 
+      children: [{path: "/", element: <Login />}, {path: "/", element: <SignIn CiUser={CiUser} CiLock={CiLock}/>},
         {path: "/home", element: <HomePage />}
       ]}]);
 
