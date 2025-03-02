@@ -31,11 +31,10 @@ const Dashboard = () => {
 
   return (
     
-    <>
-      {/* Navigation Bar */}
+    <div className = "bg-purple-300 font-itim">
+      {/* Navigation Bar 
       <div className="bg-blue-600 text-white p-4 shadow-md">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-2xl font-bold">Dashboard</div>
           <nav>
             <ul className="flex space-x-6">
               <Link to = "/home" className="hover:text-blue-300">Home</Link>
@@ -47,12 +46,26 @@ const Dashboard = () => {
             </ul>
           </nav>
         </div>
-      </div>
-      <DashboardCard title={"Today's Challenge"} value={<>Give a phone call to your beloved ones! List <Hashtag tag = "bruh" /> with your post!</>}/>
+      </div>*/}
 
-      <div className="p-6">
-        <div className="text-2xl font-bold text-indigo-500">Past Posts by you</div>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      {/* Today's Challenge */}
+      <div class="mx-auto w-full overflow-hidden rounded-xl">
+        <div class="p-8 font-itim">
+            <div class="text-4xl font-semibold tracking-wide text-left pb-5">Your Dashboard</div>
+            <div class="mt-1 block text-2xl leading-tight font-medium text-black hover:underline">
+                Today's Challenge
+            </div>
+            <div className='bg-white p-4 rounded-full mt-2'>
+              <Hashtag tag = "bruh" bgColor = 'bg-white' textColor='' textSize='text-3xl'/>
+            </div>
+            <div className='flex justify-center mt-5'>
+              <button className="bg-black text-white text-sm p-2 rounded-full hover:bg-gray-800">
+                {<>Check out recent posts with <Hashtag tag = "bruh" />! </>}
+              </button>
+            </div>
+
+        <div className="text-2xl font-bold text-black pb-5">Past Posts by you</div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10">
           {/* Dynamically render DashboardCard components */}
           {dashboardData.map((data, index) => {
             // Log the title and value to the console
@@ -66,8 +79,19 @@ const Dashboard = () => {
             );
           })}
         </div>
-      </div>
-    </>
+        <div className='flex justify-center mt-5'>
+              <button onClick={handleLogout} className="bg-black text-white text-sm p-2 rounded-full hover:bg-gray-800">
+                Logout
+              </button>
+            </div>
+        </div>  
+    </div>
+
+
+      {/*<DashboardCard title={"Today's Challenge"} value={<>Give a phone call to your beloved ones! List <Hashtag tag = "bruh" /> with your post!</>}/>*/}
+
+      
+    </div>
   );
 }
 

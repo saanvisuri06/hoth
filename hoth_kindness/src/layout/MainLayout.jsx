@@ -5,7 +5,7 @@ const MainLayout = () => {
 
   return (
     <>
-    <div>Layout</div>
+    <div className='font-itim'>Layout</div>
     <Outlet />
     </>
   )

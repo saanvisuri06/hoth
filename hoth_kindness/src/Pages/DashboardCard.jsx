@@ -9,7 +9,7 @@ const DashboardCard = ( {title, value, hashtags = []}) => {
             <a href="#" class="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
                 {title}
             </a>
-            <p class="mt-2 text-gray-500">
+            <p class="mt-2 text-gray-500 font-itim">
                 {value}
             </p>
             {/* Map through the hashtags array and render each Hashtag component */}
