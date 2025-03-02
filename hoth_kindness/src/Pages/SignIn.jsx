@@ -16,10 +16,19 @@ function SignIn({CiUser, CiLock}) {
                     <CiLock />
                     <input type="password" id="password" class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600" placeholder="Enter Password" />
                 </div>
-                
+                <div>
+                    <div>
+                        <input type="checkbox">
+                            <label>Remember Me?</label>
+                        </input>
+                    </div>
+                </div>
                 <button>Sign Up</button>
                 </form>
                 <p>Don't have an account? please sign up</p>
+                <div class="mt-5">
+                    <button class="borde-2 border-indigo-700 bg-indigo-700">Login</button>
+                </div>
             </div>
         </div>
     </div>
