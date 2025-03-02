@@ -5,9 +5,8 @@ const MainLayout = () => {
 
   return (
     <>
-    <div>
-        Layout
-    </div>
+    <div 
+    className="flex items-center justify-center h-screen bg-blue-500 text-white text-3xl">Layout</div>
     <Outlet />
     </>
   )
