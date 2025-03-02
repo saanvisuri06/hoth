@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase-config";
+import { auth, db } from "../firebase-config";
+import { ref, set, get, child } from "firebase/database";
 import { useNavigate, Link } from "react-router-dom"; 
 import { CiUser, CiLock } from "react-icons/ci";
 
@@ -9,6 +10,21 @@ const LoginPage = ({CiUser, CiLock}) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+// Set the authenticated user's data in Realtime Database
+const saveUserData = (userId) => {
+    const userRef = ref(db, "users/" + userId); // Ref to users/{uid}
+    set(userRef, {
+      challenge: "Leave uplifting notes on the sidewalk with chalk", 
+      email: email,
+    })
+      .then(() => {
+        console.log("User data saved to the database!");
+      })
+      .catch((error) => {
+        console.error("Error writing to database:", error);
+      });
+};
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -25,7 +41,11 @@ const LoginPage = ({CiUser, CiLock}) => {
     e.preventDefault(); 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // Once login is successful, the `useEffect` will handle the redirection
+      const user = auth.currentUser;
+      if (user) {
+        // Save user data to the database after successful login
+        saveUserData(user.uid); // Save data using UID as the reference
+      }
     } catch (err) {
       setError("Invalid credentials. Please try again.");
     }

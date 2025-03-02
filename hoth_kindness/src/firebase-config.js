@@ -1,8 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDWmOn6vviCdqUBP_Ro6Nkiz82oMpQg87o",
+    databaseURL: "https://hoth-19ead-default-rtdb.firebaseio.com/",
     authDomain: "hoth-19ead.firebaseapp.com",
     projectId: "hoth-19ead",
     storageBucket: "hoth-19ead.firebasestorage.app",
@@ -12,4 +14,7 @@ const firebaseConfig = {
   };
 
   const app = initializeApp(firebaseConfig);
-  export const auth = getAuth(app);
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+
+  export { auth, db };
