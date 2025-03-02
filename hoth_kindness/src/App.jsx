@@ -8,8 +8,9 @@ const App = () => {
   const router = createBrowserRouter([{ 
       path: "",
       element: <MainLayout />, 
-      children: [{path: "/", element: <Login />}, 
-        {path: "/home", element: <HomePage />}
+      children: [
+        {path: "/", element: <Login />, },
+        {path: "/home", element: <HomePage />, },
       ]}]);
 
 return (
