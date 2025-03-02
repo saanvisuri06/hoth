@@ -4,12 +4,15 @@ import MainLayout from './layout/MainLayout';
 import Login from './Pages/Login';
 import HomePage from './Pages/HomePage';
 import SignIn from './Pages/SignIn';
+import { CiUser, CiLock } from "react-icons/ci";
+
+
 
 const App = () => {
   const router = createBrowserRouter([{ 
       path: "",
       element: <MainLayout />, 
-      children: [{path: "/", element: <Login />}, 
+      children: [{path: "/", element: <SignIn CiUser={CiUser} CiLock={CiLock}/>}, 
         {path: "/home", element: <HomePage />}
       ]}]);
 
