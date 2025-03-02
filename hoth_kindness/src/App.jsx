@@ -2,7 +2,8 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from './layout/MainLayout';
 import Login from './Pages/Login';
-import HomePage from './Pages/HomePage';
+import Signup from './Pages/Signup';
+import { CiUser, CiLock } from "react-icons/ci";
 import Dashboard from './Pages/Dashboard';
 import TagPage from './Pages/TagPage';
 
@@ -10,9 +11,11 @@ const App = () => {
   const router = createBrowserRouter([{ 
       path: "",
       element: <MainLayout />, 
-      children: [{path: "/", element: <Login />}, 
-        {path: "/home", element: <HomePage />},
-        {path: "/dashboard", element: <Dashboard />},
+      children: [
+        {path: "/", element: <Login CiUser={CiUser} CiLock={CiLock}/>}, 
+        {path: "/signup", element: <Signup />},
+        //{path: "/home", element: <HomePage />},
+        {path: "/home", element: <Dashboard />},
         {path: "/tag/:tagName", element: <TagPage />}
       ]}]);
 
