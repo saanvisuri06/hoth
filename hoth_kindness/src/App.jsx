@@ -19,6 +19,8 @@ const App = () => {
     { header: "Post 6",title : 'rrrrr', tags: ['Internet', 'Tech'],value: "1231231"},
     { header: "Post 7",title : 'wswww', tags: ['Special Day'], value: "12123123"},
     { header: "Post 8",title : 'ppppp', tags: ['ICU Day'],value: "8987"},
+    { header: "Post 9",title : 'ppppp', tags: ['chalkUp'],value: "8987"},
+    { header: "Post 10",title : 'ptttpp', tags: ['chalkUp'],value: "333"},
   ];
 
   const router = createBrowserRouter([{ 

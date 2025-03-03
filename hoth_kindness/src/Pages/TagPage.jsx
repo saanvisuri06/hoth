@@ -73,15 +73,19 @@ const TagPage = ({dashboardData}) => {
                         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10">
                             {/* Dynamically render posts */}
                             {posts.length > 0 ? (
-                                posts.map((post, index) => (
-            <DashboardCard 
-                key={index} // Always add a key for list items in React
-                header={post.header}
-                title={post.title}
-                value={post.value}
-                hashtags={post.tags}
-            />
-        ))
+                                posts.map((post, index) => {
+                                  const imageUrlForCard = imageUrl[index % imageUrl.length];
+                return (
+                  <DashboardCard 
+                      key={index} // Always add a key for list items in React
+                      header={post.header}
+                      title={post.title}
+                      value={post.value}
+                      hashtags={post.tags}
+                      imgUrl={imageUrlForCard}
+                  />
+                );                  
+            })
                             ) : (
                                 <div>
                                 <p>No posts available for this tag.</p>
