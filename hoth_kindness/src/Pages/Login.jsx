@@ -40,12 +40,7 @@ const saveUserData = (userId) => {
   const handleLogin = async (e) => {
     e.preventDefault(); 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      const user = auth.currentUser;
-      if (user) {
-        // Save user data to the database after successful login
-        saveUserData(user.uid); // Save data using UID as the reference
-      }
+      await signInWithEmailAndPassword(auth, email, password);    
     } catch (err) {
       setError("Invalid credentials. Please try again.");
     }
@@ -53,40 +48,51 @@ const saveUserData = (userId) => {
 
   return (
     <div>
-      <div class="flex justify-center items-center h-screen bg-indigo-600">
-      <div class="w-96 p-6 shadow-1g bg-white rounded-md">
-      <h1 class= "text-3x1 block text-center font-semibold">Login</h1>
-      <form onSubmit={handleLogin}>
-        <div className="form-control">
-          <label for="email" class="block text-base mb-2">Email </label>
-          <CiUser />
-          <input id="email" 
-          class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          />
-        </div>
+      <div class="flex justify-center items-center h-screen bg-purple-300">
+        <div class="w-96 p-6 shadow-1g bg-white rounded-md">
+          <h1 class= "text-3xl block text-center font-semibold">Welcome!</h1>
+          <form onSubmit={handleLogin}>
+          <div className="form-control mt-4">
+            <div className="flex items-center">
+              <label for="email" class="block text-base mb-2">Email </label>
+              <CiUser className = "text-xl mr-2"/>
+            </div>
+              
+            <input id="email" 
+              class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+            />
+          </div>
 
-        <div className="form-control">
-          <label for="password" class="block text-base mb-2">Password</label>
-          <CiLock />
-          <input id="password"
-          class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          />
+          <div className="form-control mt-4">
+            <div className="flex items-center">
+              <label for="password" class="block text-base mb-2">Password</label>
+              <CiLock className = "text-xl mr-2"/>
+            </div>
+
+              <input id="password"
+                class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+          </div>
+
+          <div className="flex justify-center mt-4">
+            <button className="px-10 py-2 text-xl rounded-md bg-purple-700 text-white" type="submit">Login</button>
+          </div>
+          </form>
+          {error && <p>{error}</p>} {/* Display error if login fails */}
+          <div className="flex items-center">
+            <p class="whitespace-break-spaces">Don't have an account with us? </p>
+            <Link to="/signup"><p class="underline">Register now!</p></Link>
+          </div>
+          
         </div>
-        <div>
-          <button className="px-10 py-2 text-2x1 rounded-md bg-black text-white" type="submit">Login</button>
-        </div>
-      </form>
-      {error && <p>{error}</p>} {/* Display error if login fails */}
-      <Link to="/signup"><p>Don't have an account with us? Create a new account!</p></Link>
-      </div>
       </div>
     </div>
   );

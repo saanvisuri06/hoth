@@ -3,6 +3,7 @@ import {createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth"
 import { auth, db } from "../firebase-config";
 import { ref, set, get, child } from "firebase/database";
 import { useNavigate, Link } from "react-router-dom";
+import { CiUser, CiLock } from "react-icons/ci";
 
 const Signup = ({CiUser, CiLock}) => {
     const [email, setEmail] = useState("");
@@ -56,7 +57,12 @@ const Signup = ({CiUser, CiLock}) => {
           <div class="flex justify-center items-center h-screen bg-purple-300">
             <div class="w-96 p-6 shadow-1g bg-white rounded-md">
             <h1 class= "text-3xl block text-center font-semibold">Sign Up</h1>
-            <label for="email" class="block text-base mb-2">Email</label>
+            <div className="form-control mt-4">
+              <div className="flex items-center">
+                <label for="email" class="block text-base mb-2">Email</label>
+                <CiUser className = "text-xl mr-2"/>
+              </div>
+            
             <input
               class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
               placeholder="Enter Email"
@@ -64,8 +70,12 @@ const Signup = ({CiUser, CiLock}) => {
                 setEmail(event.target.value);
               }}
             />
-          
-            <label for="password" class="block text-base mb-2">Password</label>
+            </div>
+            <div className="form-control mt-4">
+              <div className="flex items-center">
+                <label for="password" class="block text-base mb-2">Password</label>
+                <CiLock className = "text-xl mr-2"/>
+              </div>
             <input
               class="border w-full text-base px-2 py-1 focus:outline-none focus:ring-0 focus:border-gray-600"
               placeholder="Enter Password"
@@ -73,9 +83,10 @@ const Signup = ({CiUser, CiLock}) => {
                 setPassword(event.target.value);
               }}
             />
+            </div>
 
             <div className="flex justify-center mt-4">
-              <button className="px-10 py-2 text-xl rounded-md bg-black text-white" type="submit" onClick={handleSignup}> Create User</button>
+              <button className="px-10 py-2 text-xl rounded-md bg-purple-700 text-white" type="submit" onClick={handleSignup}> Create User</button>
             </div>
 
             </div>
