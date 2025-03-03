@@ -10,7 +10,7 @@ const TagPage = () => {
     const { tagName } = useParams();
     //console.log("Current Tag:", tagName);
     const [posts, setPosts] = useState([]);
-    const [imageUrl, setImageUrl] = useState(null);
+    const [imageUrl, setImageUrl] = useState([]);
 
     useEffect(() => {
         const fetchImage = async () => {
@@ -83,8 +83,12 @@ const TagPage = () => {
                             ) : (
                                 <div>
                                 <p>No posts available for this tag.</p>
-                                
+                                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+        {imageUrl.map((url, index) => (
+          <img key={index} src={url} alt={`Image ${index}`} width="200px" />
+        ))}
       </div>
+                                </div>
                             )}
                         </div>
                     </div>

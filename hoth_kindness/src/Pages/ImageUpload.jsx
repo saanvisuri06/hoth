@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import DashboardCard from './DashboardCard';
-import Hashtag from './Hashtag';
 import { Link } from 'react-router-dom';
 import { getAuth, signOut } from "firebase/auth";
 import { auth, storage } from "../firebase-config";
@@ -11,12 +9,10 @@ import {
   listAll,
   list,
 } from "firebase/storage";
-import { useNavigate } from "react-router-dom"; 
 
 const ImageUpload = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
-  const navigate = useNavigate();
   const imagesListRef = ref(storage, "images/");
 
   const uploadFile = () => {
