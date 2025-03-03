@@ -54,7 +54,7 @@ const Signup = ({CiUser, CiLock}) => {
   return (
     <div>
         <div>
-          <div class="flex justify-center items-center h-screen bg-purple-300">
+          <div class="flex justify-center items-center h-screen bg-purple-300 font-itim">
             <div class="w-96 p-6 shadow-1g bg-white rounded-md">
             <h1 class= "text-3xl block text-center font-semibold">Sign Up</h1>
             <div className="form-control mt-4">
@@ -87,6 +87,11 @@ const Signup = ({CiUser, CiLock}) => {
 
             <div className="flex justify-center mt-4">
               <button className="px-10 py-2 text-xl rounded-md bg-purple-700 text-white" type="submit" onClick={handleSignup}> Create User</button>
+            </div>
+
+            <div className="flex items-center pt-2">
+                <p class="whitespace-break-spaces">If you have an account, </p>
+                <Link to="/"><p class="underline">please Login.</p></Link>
             </div>
 
             </div>

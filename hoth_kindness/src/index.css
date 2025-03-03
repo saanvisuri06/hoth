@@ -3,3 +3,10 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+/* Ensure html and body take up full height */
+html, body {
+    height: 100%;
+    background-color: #e9d5ff; /* Your purple color */
+    margin: 0; /* Reset any default margin */
+  }
