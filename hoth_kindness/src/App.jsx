@@ -13,7 +13,7 @@ const App = () => {
       element: <MainLayout />, 
       children: [
         {path: "/", element: <Login CiUser={CiUser} CiLock={CiLock}/>}, 
-        {path: "/signup", element: <Signup />},
+        {path: "/signup", element: <Signup CiUser={CiUser} CiLock={CiLock}/>},
         //{path: "/home", element: <HomePage />},
         {path: "/home", element: <Dashboard />},
         {path: "/tag/:tagName", element: <TagPage />}
