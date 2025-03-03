@@ -74,7 +74,11 @@ const TagPage = ({dashboardData}) => {
                             {/* Dynamically render posts */}
                             {posts.length > 0 ? (
                                 posts.map((post, index) => {
-                                  const imageUrlForCard = imageUrl[index % imageUrl.length];
+                                  //const imageUrlForCard = imageUrl[index % imageUrl.length];
+
+          const imageUrlForCard = tagName === "chalkUp"
+          ? imageUrl[index % imageUrl.length]  // If tagName is 'chalkUp', use the external imageUrl
+          : post.imageUrl;                     // Otherwise, use the post's own imageUrl
                 return (
                   <DashboardCard 
                       key={index} // Always add a key for list items in React
@@ -89,11 +93,11 @@ const TagPage = ({dashboardData}) => {
                             ) : (
                                 <div>
                                 <p>No posts available for this tag.</p>
-                                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+                                {/*<div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
         {imageUrl.map((url, index) => (
           <img key={index} src={url} alt={`Image ${index}`} width="200px" />
         ))}
-      </div>
+      </div>*/}
                                 </div>
                             )}
                         </div>

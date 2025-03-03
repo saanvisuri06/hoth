@@ -71,7 +71,7 @@ const Dashboard = ({dashboardData}) => {
       {/* Today's Challenge */}
       <div class="mx-auto w-full overflow-hidden rounded-xl">
         <div class="p-8 font-itim">
-            <div class="text-4xl font-semibold tracking-wide text-left pb-5">Your Dashboard</div>
+            <div class="text-4xl font-semibold tracking-wide text-left pb-5">Generosity Journal</div>
             <div className="group flex items-center space-x-4">
             {/* First div: Visible always, with hover effect */}
               <div className="mt-1 block text-2xl leading-tight font-medium text-black hover:underline">
@@ -109,6 +109,7 @@ const Dashboard = ({dashboardData}) => {
               title={data.title} 
               value={data.value} 
               hashtags={data.tags}
+              imgUrl={data.imageUrl}
             />
             );
           })}
