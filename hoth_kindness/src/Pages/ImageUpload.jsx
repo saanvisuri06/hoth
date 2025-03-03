@@ -55,12 +55,12 @@ const ImageUpload = () => {
           className="block w-full text-sm text-gray-600 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-purple-500 mb-4"
         />
         
-        <button
+        <Link to="/home"><button
           onClick={uploadFile}
           className="w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg transition-colors"
         >
           Upload Image
-        </button>
+        </button></Link>
       </div>
 
 
