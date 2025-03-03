@@ -41,7 +41,7 @@ const ImageUpload = () => {
   }, []);
   
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-purple-300 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-purple-300 p-4 font-itim">
       <h1 className="text-4xl font-bold text-center text-white mb-6">
         Add Your Photo and Caption Here!
       </h1>

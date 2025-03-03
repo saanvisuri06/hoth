@@ -83,9 +83,12 @@ const Dashboard = () => {
             </div>
             </Link>
             <div className='flex justify-center mt-5'>
-              <button className="bg-black text-white text-sm p-2 rounded-full hover:bg-gray-800">
-              {<Link to="/ImageUpload"><p >Add your photo for today!</p></Link>}
+              <Link to="/ImageUpload">
+              
+              <button className="bg-black text-white text-sm p-2 rounded-full hover:bg-gray-800" ref={firstButtonRef}>
+                <p>Add your photo for today!</p>
               </button>
+              </Link>
             </div>
 
         <div className="text-2xl font-bold text-black pb-5 pt-5">Past Posts by you</div>
@@ -103,7 +106,7 @@ const Dashboard = () => {
             );
           })}
         </div>
-        <div className='flex justify-center mt-5'>
+        <div className='flex justify-center mt-5'> 
               <button style={{ width: buttonWidth }} onClick={handleLogout} className="bg-black text-white text-md p-2 rounded-full hover:bg-gray-800">
                 Logout
               </button>
