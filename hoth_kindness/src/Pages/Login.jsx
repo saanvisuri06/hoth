@@ -49,7 +49,7 @@ const saveUserData = (userId) => {
   return (
     <div>
       <div class="flex justify-center items-center h-screen bg-purple-300">
-        <div class="w-96 p-6 shadow-1g bg-white rounded-md">
+        <div class="w-96 p-6 shadow-1g bg-white rounded-md font-itim">
           <h1 class= "text-3xl block text-center font-semibold">Welcome!</h1>
           <form onSubmit={handleLogin}>
           <div className="form-control mt-4">
@@ -69,7 +69,7 @@ const saveUserData = (userId) => {
 
           <div className="form-control mt-4">
             <div className="flex items-center">
-              <label for="password" class="block text-base mb-2">Password</label>
+              <label for="password" class="block text-base mb-2 self-end mt-1">Password</label>
               <CiLock className = "text-xl mr-2"/>
             </div>
 
@@ -87,7 +87,7 @@ const saveUserData = (userId) => {
           </div>
           </form>
           {error && <p>{error}</p>} {/* Display error if login fails */}
-          <div className="flex items-center">
+          <div className="flex items-center pt-2">
             <p class="whitespace-break-spaces">Don't have an account with us? </p>
             <Link to="/signup"><p class="underline">Register now!</p></Link>
           </div>
