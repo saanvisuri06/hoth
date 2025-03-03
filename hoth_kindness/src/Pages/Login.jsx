@@ -40,12 +40,7 @@ const saveUserData = (userId) => {
   const handleLogin = async (e) => {
     e.preventDefault(); 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      const user = auth.currentUser;
-      if (user) {
-        // Save user data to the database after successful login
-        saveUserData(user.uid); // Save data using UID as the reference
-      }
+      await signInWithEmailAndPassword(auth, email, password);    
     } catch (err) {
       setError("Invalid credentials. Please try again.");
     }
