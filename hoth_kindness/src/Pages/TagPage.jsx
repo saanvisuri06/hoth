@@ -1,5 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { storage } from '../firebase-config';
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import DashboardCard from './DashboardCard';
 import Hashtag from './Hashtag';
 
@@ -7,6 +9,25 @@ const TagPage = () => {
     const { tagName } = useParams();
     //console.log("Current Tag:", tagName);
     const [posts, setPosts] = useState([]);
+    const [imageUrl, setImageUrl] = useState(null);
+
+    useEffect(() => {
+        const fetchImage = async () => {
+          const imageRef = ref(storage, "images/");
+          try {
+            const response = await listAll(imageRef); // List all files in the folder
+            const urls = await Promise.all(response.items.map(async (item) => {
+              return await getDownloadURL(item);
+            }));
+            
+            setImageUrl(urls); // Store URLs in state
+          } catch (error) {
+            console.error("Error fetching images:", error);
+          }
+        };
+    
+        fetchImage();
+      }, []);
 
     useEffect(() => {
         if (!tagName) return;
@@ -54,7 +75,14 @@ const TagPage = () => {
             />
         ))
                             ) : (
+                                <div>
                                 <p>No posts available for this tag.</p>
+                                <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+        {imageUrl.map((url, index) => (
+          <img key={index} src={url} alt={`Image ${index}`} width="200px" />
+        ))}
+      </div>
+      </div>
                             )}
                         </div>
                     </div>
