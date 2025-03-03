@@ -78,19 +78,10 @@ const Dashboard = () => {
             </div>
             <div className='flex justify-center mt-5'>
               <button className="bg-black text-white text-sm p-2 rounded-full hover:bg-gray-800">
-                {<>Check out recent posts with <Hashtag tag = "bruh" />! </>}
+                {<Link to="/ImageUpload"><p >Add your photo for today!</p></Link>}
               </button>
               
-              <div className="App">
-                <input
-                   type="file"
-                    onChange={(event) => {
-                    setImageUpload(event.target.files[0]);
-                }}/>
-                <button onClick={uploadFile}> Upload Image
-                </button>{imageUrls.map((url) => {return <img src={url} />;
-                  })}
-              </div>
+              
             </div>
 
         <div className="text-2xl font-bold text-black pb-5">Past Posts by you</div>

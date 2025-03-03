@@ -6,6 +6,7 @@ import Signup from './Pages/Signup';
 import { CiUser, CiLock } from "react-icons/ci";
 import Dashboard from './Pages/Dashboard';
 import TagPage from './Pages/TagPage';
+import ImageUpload from './Pages/ImageUpload';
 
 const App = () => {
   const router = createBrowserRouter([{ 
@@ -14,6 +15,7 @@ const App = () => {
       children: [
         {path: "/", element: <Login CiUser={CiUser} CiLock={CiLock}/>}, 
         {path: "/signup", element: <Signup CiUser={CiUser} CiLock={CiLock}/>},
+        {path: "/ImageUpload", element: <ImageUpload />},
         //{path: "/home", element: <HomePage />},
         {path: "/home", element: <Dashboard />},
         {path: "/tag/:tagName", element: <TagPage />}
