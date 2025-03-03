@@ -14,8 +14,6 @@ import {
 import { useNavigate } from "react-router-dom"; // For navigating after logout
 
 const Dashboard = () => {
-  const [imageUpload, setImageUpload] = useState(null);
-  const [imageUrls, setImageUrls] = useState([]);
 
   const dashboardData = [
     { title : 'HRHR', value: "1234"},
@@ -25,17 +23,6 @@ const Dashboard = () => {
   ];
   const hashtags = ['Metoo', 'Tech', 'Innovation', 'React', 'Frontend'];
   const navigate = useNavigate();
-
-  const uploadFile = () => {
-    if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name}`);
-    uploadBytes(imageRef, imageUpload).then((snapshot) => {
-      alert("Image Uploaded!")
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImageUrls((prev) => [...prev, url]);
-      });
-    });
-  };
   
     const handleLogout = async () => {
       try {
@@ -97,17 +84,6 @@ const Dashboard = () => {
               <button className="bg-black text-white text-sm p-2 rounded-full hover:bg-gray-800">
               {<Link to="/ImageUpload"><p >Add your photo for today!</p></Link>}
               </button>
-              
-              <div className="App">
-                <input
-                   type="file"
-                    onChange={(event) => {
-                    setImageUpload(event.target.files[0]);
-                }}/>
-                <button onClick={uploadFile}> Upload Image
-                </button>{imageUrls.map((url) => {return <img src={url} />;
-                  })}
-              </div>
             </div>
 
         <div className="text-2xl font-bold text-black pb-5 pt-5">Past Posts by you</div>
