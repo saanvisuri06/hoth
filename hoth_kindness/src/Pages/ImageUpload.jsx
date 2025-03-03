@@ -14,10 +14,11 @@ const ImageUpload = () => {
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
   const imagesListRef = ref(storage, "images/");
+  const user = auth.currentUser ? auth.currentUser.email : "";
 
   const uploadFile = () => {
     if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name}`);
+    const imageRef = ref(storage, `images/${user}/${imageUpload.name}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       alert("Image Uploaded!")
       getDownloadURL(snapshot.ref).then((url) => {
