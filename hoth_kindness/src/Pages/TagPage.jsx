@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import DashboardCard from './DashboardCard';
 import Hashtag from './Hashtag';
+import { Link } from 'react-router-dom';
 
 const TagPage = () => {
     const { tagName } = useParams();
@@ -39,6 +40,11 @@ const TagPage = () => {
                 {/* Today's Challenge */}
                 <div className="mx-auto w-full overflow-hidden rounded-xl">
                     <div className="p-8 font-itim">
+                        <Link to = {`/Home`}>
+                            <div className='p-2'> 
+                                {`> Back`}
+                            </div>
+                        </Link>
                         <div className="text-4xl font-semibold tracking-wide text-left pb-5">
                             Posts for <Hashtag tag={tagName} textSize="text-3xl" />
                         </div>

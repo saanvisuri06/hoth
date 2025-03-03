@@ -90,9 +90,11 @@ const Dashboard = () => {
                 Click below to see today's posts
               </div>
             </div>
+            <Link to={`/tag/bruh`}>
             <div className='bg-white p-4 rounded-full mt-2 text-2xl'>
                 {<><Hashtag tag = "chalkUp" bgColor = 'bg-white' textColor='' textSize='text-3xl'/>: Leave uplifting notes on the sidewalk with a chalk </>}
             </div>
+            </Link>
             <div className='flex justify-center mt-5'>
               <button ref={firstButtonRef} className="bg-black text-white text-sm p-2 rounded-full hover:bg-gray-800">
               <Link to={`/tag/bruh`} className="w-full h-full">
