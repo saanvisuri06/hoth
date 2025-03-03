@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { storage } from '../firebase-config';
+import { auth, storage } from '../firebase-config';
 import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import DashboardCard from './DashboardCard';
 import Hashtag from './Hashtag';
@@ -9,11 +9,13 @@ const TagPage = () => {
     const { tagName } = useParams();
     //console.log("Current Tag:", tagName);
     const [posts, setPosts] = useState([]);
-    const [imageUrl, setImageUrl] = useState([]);
+    const [imageUrl, setImageUrl] = useState([]); 
+    const user = auth.currentUser ? auth.currentUser.email : "";
+      
 
     useEffect(() => {
         const fetchImage = async () => {
-          const imageRef = ref(storage, "images/");
+          const imageRef = ref(storage, `images/${user}`);
           try {
             const response = await listAll(imageRef); // List all files in the folder
             const urls = await Promise.all(response.items.map(async (item) => {
