@@ -77,7 +77,7 @@ const Dashboard = () => {
                 Click below to see today's posts
               </div>
             </div>
-            <Link to={`/tag/bruh`}>
+            <Link to={`/tag/chalkUp`}>
             <div className='bg-white p-4 rounded-full mt-2 text-2xl'>
                 {<><Hashtag tag = "chalkUp" bgColor = 'bg-white' textColor='' textSize='text-3xl'/>: Leave uplifting notes on the sidewalk with a chalk </>}
             </div>

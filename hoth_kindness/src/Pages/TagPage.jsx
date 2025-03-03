@@ -16,7 +16,7 @@ const TagPage = () => {
         // Simulate fetching posts with the same tag (replace with actual API)
         const fetchPostsByTag = async () => {
           const allPosts = [
-            { title: 'Post 1', tags: ['Metoo', 'Tech'], value: 'This is post 1' },
+            { title: 'A Women in Tech', tags: ['Metoo', 'Tech'], value: 'The fight for gender equity in <Hashtag tag="Tech" /> continues. Stand with survivors, support <Hashtag tag="Metoo" /> initiatives, and advocate for systemic change.' },
             { title: 'Post 2', tags: ['Metoo'], value: 'This is post 2' },
             { title: 'Post 3', tags: ['bruh'], value: 'This is post 3' },
             { title: 'Post 4', tags: ['Metoo'], value: 'This is post 4' },
