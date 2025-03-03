@@ -6,7 +6,7 @@ import DashboardCard from './DashboardCard';
 import Hashtag from './Hashtag';
 import { Link } from 'react-router-dom';
 
-const TagPage = () => {
+const TagPage = ({dashboardData}) => {
     const { tagName } = useParams();
     //console.log("Current Tag:", tagName);
     const [posts, setPosts] = useState([]);
@@ -36,15 +36,15 @@ const TagPage = () => {
         //console.log("Rerendering:", tagName);
         // Simulate fetching posts with the same tag (replace with actual API)
         const fetchPostsByTag = async () => {
-          const allPosts = [
-            { title: 'A Women in Tech', tags: ['Metoo', 'Tech'], value: 'The fight for gender equity in <Hashtag tag="Tech" /> continues. Stand with survivors, support <Hashtag tag="Metoo" /> initiatives, and advocate for systemic change.' },
-            { title: 'Post 2', tags: ['Metoo'], value: 'This is post 2' },
-            { title: 'Post 3', tags: ['bruh'], value: 'This is post 3' },
-            { title: 'Post 4', tags: ['Metoo'], value: 'This is post 4' },
-          ];
+          /*const allPosts = [
+            { header: 'Post 1', title: 'A Women in Tech', tags: ['Metoo', 'Tech'], value: 'The fight for gender equity in #Tech continues. Stand with survivors, support #Metoo initiatives, and advocate for systemic change.' },
+            { header: 'Post 2',title: 'Post 2', tags: ['Metoo'], value: 'This is post 2' },
+            { header: 'Post 3',title: 'Post 3', tags: ['bruh'], value: 'This is post 3' },
+            { header: 'Post 4',title: 'Post 4', tags: ['Metoo'], value: 'This is post 4' },
+          ];*/
     
           // Filter posts by the tag name from the URL
-          const filteredPosts = allPosts.filter(post =>
+          const filteredPosts = dashboardData.filter(post =>
             post.tags.includes(tagName)
           );
     
@@ -75,6 +75,7 @@ const TagPage = () => {
                                 posts.map((post, index) => (
             <DashboardCard 
                 key={index} // Always add a key for list items in React
+                header={post.header}
                 title={post.title}
                 value={post.value}
                 hashtags={post.tags}

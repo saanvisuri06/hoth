@@ -13,14 +13,20 @@ import {
 } from "firebase/storage";
 import { useNavigate } from "react-router-dom"; // For navigating after logout
 
-const Dashboard = () => {
+const Dashboard = ({dashboardData}) => {
 
-  const dashboardData = [
-    { title : 'HRHR', value: "1234"},
-    { title : 'rrrrr', value: "1231231"},
-    { title : 'wswww', value: "12123123"},
-    { title : 'ppppp', value: "8987"},
-  ];
+  /*const dashboardData = [
+    { header: 'Post 1', title: 'A Women in Tech', tags: ['Metoo', 'Tech'], value: 'The fight for gender equity in #Tech continues. Stand with survivors, support #Metoo initiatives, and advocate for systemic change.' },
+    { header: 'Post 2',title: 'Post 2', tags: ['Metoo'], value: 'This is post 2' },
+    { header: 'Post 3',title: 'Post 3', tags: ['bruh'], value: 'This is post 3' },
+    { header: 'Post 4',title: 'Post 4', tags: ['Metoo'], value: 'This is post 4' },
+    { header: "Post 5", title : 'HRHR', value: "1234"},
+    { header: "Post 6",title : 'rrrrr', value: "1231231"},
+    { header: "Post 7",title : 'wswww', value: "12123123"},
+    { header: "Post 8",title : 'ppppp', value: "8987"},
+  ];*/
+  const userData = dashboardData.slice(-4);
+
   const hashtags = ['Metoo', 'Tech', 'Innovation', 'React', 'Frontend'];
   const navigate = useNavigate();
   
@@ -94,14 +100,15 @@ const Dashboard = () => {
         <div className="text-2xl font-bold text-black pb-5 pt-5">Past Posts by you</div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10">
           {/* Dynamically render DashboardCard components */}
-          {dashboardData.map((data, index) => {
+          {userData.map((data, index) => {
             // Log the title and value to the console
             console.log(`Title: ${data.title}, Value: ${data.value}`);
             return (
             <DashboardCard 
+              header={data.header}
               title={data.title} 
               value={data.value} 
-              hashtags={hashtags}
+              hashtags={data.tags}
             />
             );
           })}
