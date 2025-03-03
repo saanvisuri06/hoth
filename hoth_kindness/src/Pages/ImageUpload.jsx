@@ -18,7 +18,7 @@ const ImageUpload = () => {
 
   const uploadFile = () => {
     if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${user}/${imageUpload.name}`);
+    const imageRef = ref(storage, `images/${imageUpload.name}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       alert("Image Uploaded!")
       getDownloadURL(snapshot.ref).then((url) => {
