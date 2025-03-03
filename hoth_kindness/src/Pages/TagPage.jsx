@@ -9,7 +9,7 @@ const TagPage = () => {
     const { tagName } = useParams();
     //console.log("Current Tag:", tagName);
     const [posts, setPosts] = useState([]);
-    const [imageUrl, setImageUrl] = useState(null);
+    const [imageUrl, setImageUrl] = useState([]);
 
     useEffect(() => {
         const fetchImage = async () => {
@@ -82,7 +82,7 @@ const TagPage = () => {
           <img key={index} src={url} alt={`Image ${index}`} width="200px" />
         ))}
       </div>
-      </div>
+                                </div>
                             )}
                         </div>
                     </div>
