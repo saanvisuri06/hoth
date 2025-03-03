@@ -10,12 +10,11 @@ const TagPage = () => {
     //console.log("Current Tag:", tagName);
     const [posts, setPosts] = useState([]);
     const [imageUrl, setImageUrl] = useState([]); 
-    const user = auth.currentUser ? auth.currentUser.email : "";
       
 
     useEffect(() => {
         const fetchImage = async () => {
-          const imageRef = ref(storage, `images/${user}`);
+          const imageRef = ref(storage, `images/`);
           try {
             const response = await listAll(imageRef); // List all files in the folder
             const urls = await Promise.all(response.items.map(async (item) => {
